@@ -37,6 +37,6 @@
   }
 }
 
-.drag-container {
+.draggable-button {
   touch-action: none;
 }
