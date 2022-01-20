@@ -1,6 +1,7 @@
 {
   "name": "drag-test",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@dnd-kit/core": "^5.0.1",
