@@ -3,6 +3,7 @@ import {DndContext} from '@dnd-kit/core';
 
 import {Droppable} from './Droppable';
 import {Draggable} from './Draggable';
+import './App.css';
 
 export default function App() {
   const [isDropped, setIsDropped] = useState(false);
