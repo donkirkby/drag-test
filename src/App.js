@@ -13,10 +13,12 @@ export default function App() {
   
   return (
     <DndContext onDragEnd={handleDragEnd}>
-      {!isDropped ? draggableMarkup : null}
-      <Droppable>
-        {isDropped ? draggableMarkup : 'Drop here'}
-      </Droppable>
+      <div className="dragging-container">
+        {!isDropped ? draggableMarkup : null}
+        <Droppable>
+          {isDropped ? draggableMarkup : 'Drop here'}
+        </Droppable>
+      </div>
     </DndContext>
   );
   
