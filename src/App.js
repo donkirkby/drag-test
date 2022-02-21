@@ -1,15 +1,21 @@
 import React, {useState} from 'react';
-import {DndContext, DragOverlay} from '@dnd-kit/core';
+import {DndContext, MouseSensor, TouchSensor, useSensor, useSensors} from '@dnd-kit/core';
 
 import {Draggable} from './Draggable';
 import { Droppable } from './Droppable';
 
 export default function App() {
+  const sensors = useSensors(
+    useSensor(MouseSensor),
+    useSensor(TouchSensor)
+  );
   const [items] = useState([1, 2, 3, 4, 5, null, null, null]);
   const [activeId, setActiveId] = useState(null);
   
   return (
-    <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+    <DndContext onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
+        sensors={sensors}>
       <ul>
         {items.map((id, position) => {
           const draggableId = id && `draggable_${id}`,
@@ -24,12 +30,6 @@ export default function App() {
         }
         )}
       </ul>
-      
-      <DragOverlay>
-        {activeId
-          ? <li>{`Item ${activeId.slice(-1)}`}</li>
-          : null}
-      </DragOverlay>
     </DndContext>
   );
   
