@@ -37,6 +37,6 @@
   }
 }
 
-.dragging-container {
+ul {
   touch-action: none;
 }
